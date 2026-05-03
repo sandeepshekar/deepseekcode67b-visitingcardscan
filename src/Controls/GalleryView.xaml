@@ -1,0 +1,21 @@
+<!-- GalleryView.xaml -->
+<UserControl x:Class="PhotoViewerApp.Controls.GalleryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:PhotoViewerApp.Models"
+             xmlns:vm="using:PhotoViewerApp.ViewModels"
+             Name="GalleryRoot">
+
+    <!-- Use a VirtualizingWrapPanel or ItemsControl for efficient thumbnail display -->
+    <ItemsControl ItemsSource="{Binding Path=ItemsSource}">
+        <ItemsControl.ItemTemplate>
+            <DataTemplate DataType="{x:Type local:MediaDisplayItem}">
+                <Border Margin="5" BorderBrush="#ccc" BorderThickness="1" Cursor="Hand">
+                    <!-- Click event triggers the ViewModel's selection handler -->
+                    <Button Content="" Style="{StaticResource {x:Type Button}}"
+                            Click="Thumbnail_Click" Tag="{Binding MediaFile}" />
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

@@ -1,0 +1,14 @@
+<!-- SingleMediaViewer.xaml -->
+<UserControl x:Class="PhotoViewerApp.Controls.SingleMediaViewer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Title="Selected Media Viewer">
+
+    <Grid>
+        <!-- The content of this Grid will be dynamically replaced based on the media type -->
+        <ContentControl x:Name="ContentView">
+            <!-- Initial placeholder or loading indicator -->
+            <TextBlock Text="Select an item from the gallery to view details." FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </ContentControl>
+    </Grid>
+</UserControl>

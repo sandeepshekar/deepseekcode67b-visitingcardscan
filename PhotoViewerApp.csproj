@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework> <!-- Targeting modern Windows APIs -->
+    <UseWIntrospection>true</UseWIntrospection>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Core Components -->
+    <ProjectReference Include="..\src\Models\MediaFile.csproj" />
+    <ProjectReference Include="..\src\ViewModels\BaseViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Service Implementation Libraries -->
+    <ProjectReference Include="..\src\Services\ThumbnailService.csproj" />
+    <ProjectReference Include="..\src\Services\MediaService.csproj" />
+  </ItemGroup>
+
+  <!-- Define project structure for simplicity and coherence -->
+  <!-- The actual build system would need to manage these dependencies, but defining the files is the next logical step. -->
+
+</Project>

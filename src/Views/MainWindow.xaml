@@ -1,0 +1,33 @@
+<!-- MainWindow.xaml -->
+<Window x:Class="PhotoViewerApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="using:PhotoViewerApp.ViewModels"
+        Title="Local Media Viewer" Height="700" Width="1200">
+
+    <Window.DataContext>
+        <!-- The ViewModel will be initialized here in the code-behind or via DI -->
+        <local:GalleryViewModel x:Name="ViewModel"/>
+    </Window.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" /> <!-- Gallery List (Left) -->
+            <ColumnDefinition Width="3*" /> <!-- Single Viewer (Right) -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Left Panel: The Media Gallery Grid View -->
+        <ScrollViewer Grid.Column="0" Margin="10">
+            <StackPanel>
+                <TextBlock Text="{Binding StatusMessage}" FontWeight="Bold" Margin="0, 5"/>
+                <!-- This control will bind to the ObservableCollection in the ViewModel -->
+                <local:GalleryView ItemsSource="{Binding MediaItems}" SelectionChangedCommand="{Binding SelectItemCommand}" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <!-- Right Panel: The Single Media Viewer -->
+        <Border Grid.Column="1" Margin="20" BorderThickness="1" BorderBrush="#333">
+            <local:SingleMediaViewer />
+        </Border>
+    </Grid>
+</Window>
